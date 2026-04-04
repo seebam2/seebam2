@@ -3,9 +3,11 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import Dashboard from "./pages/Dashboard.tsx";
-import NotFound from "./pages/NotFound.tsx";
-import ModulePage from "./pages/ModulePage.tsx";
+import LandingPage from "./pages/LandingPage";
+import Login from "./pages/Login";
+import Dashboard from "./pages/Dashboard";
+import NotFound from "./pages/NotFound";
+import ModulePage from "./pages/ModulePage";
 import {
   Users, UserPlus, Landmark, Building2, Briefcase,
   DollarSign, CreditCard, HeartPulse, Handshake,
@@ -37,7 +39,9 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Dashboard />} />
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/dashboard" element={<Dashboard />} />
           {modules.map((m) => (
             <Route
               key={m.path}

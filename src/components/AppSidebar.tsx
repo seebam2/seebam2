@@ -16,7 +16,7 @@ import {
   ChevronDown,
 } from "lucide-react";
 import { NavLink } from "@/components/NavLink";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import {
   Sidebar,
   SidebarContent,
@@ -37,7 +37,7 @@ import {
 } from "@/components/ui/collapsible";
 
 const mainItems = [
-  { title: "Dashboard", url: "/", icon: LayoutDashboard },
+  { title: "Dashboard", url: "/dashboard", icon: LayoutDashboard },
 ];
 
 const cadastroItems = [
@@ -115,6 +115,36 @@ function NavGroup({ label, items, collapsed }: NavGroupProps) {
 export function AppSidebar() {
   const { state } = useSidebar();
   const collapsed = state === "collapsed";
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    sessionStorage.removeItem("demo_role");
+    navigate("/");
+  };
+
+  // Get current role info
+  const role = sessionStorage.getItem("demo_role") || "gestor";
+  const roleLabels: Record<string, string> = {
+    super_admin: "Super Admin",
+    gestor: "Gestor",
+    financeiro: "Financeiro",
+    atendimento: "Atendimento",
+    associado: "Associado",
+  };
+  const roleNames: Record<string, string> = {
+    super_admin: "Ricardo M.",
+    gestor: "Fernanda O.",
+    financeiro: "Paulo N.",
+    atendimento: "Carla R.",
+    associado: "José A.",
+  };
+  const initials: Record<string, string> = {
+    super_admin: "RM",
+    gestor: "FO",
+    financeiro: "PN",
+    atendimento: "CR",
+    associado: "JA",
+  };
 
   return (
     <Sidebar collapsible="icon" className="border-r border-sidebar-border">
@@ -125,8 +155,8 @@ export function AppSidebar() {
           </div>
           {!collapsed && (
             <div>
-              <h2 className="text-sm font-semibold text-foreground">SindiGestão</h2>
-              <p className="text-[11px] text-muted-foreground">Plataforma Sindical</p>
+              <h2 className="text-sm font-semibold text-foreground">Seebam</h2>
+              <p className="text-[11px] text-muted-foreground">Gestão Sindical</p>
             </div>
           )}
         </div>
@@ -165,12 +195,15 @@ export function AppSidebar() {
         {!collapsed && (
           <div className="flex items-center gap-3">
             <div className="h-8 w-8 rounded-full bg-muted flex items-center justify-center">
-              <span className="text-xs font-medium text-muted-foreground">AD</span>
+              <span className="text-xs font-medium text-muted-foreground">{initials[role] || "AD"}</span>
             </div>
             <div className="flex-1 min-w-0">
-              <p className="text-sm font-medium text-foreground truncate">Admin</p>
-              <p className="text-[11px] text-muted-foreground truncate">Super Admin</p>
+              <p className="text-sm font-medium text-foreground truncate">{roleNames[role] || "Admin"}</p>
+              <p className="text-[11px] text-muted-foreground truncate">{roleLabels[role] || "Gestor"}</p>
             </div>
+            <button onClick={handleLogout} className="text-xs text-muted-foreground hover:text-foreground transition-colors" title="Sair">
+              ✕
+            </button>
           </div>
         )}
       </SidebarFooter>
