@@ -37,7 +37,7 @@ import {
 } from "@/components/ui/collapsible";
 
 const mainItems = [
-  { title: "Dashboard", url: "/", icon: LayoutDashboard },
+  { title: "Dashboard", url: "/dashboard", icon: LayoutDashboard },
 ];
 
 const cadastroItems = [
