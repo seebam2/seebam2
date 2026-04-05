@@ -1,21 +1,14 @@
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { AppLayout } from "@/components/AppLayout";
-import { StatCard } from "@/components/StatCard";
-import { Card } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Users, DollarSign, HeartPulse, AlertTriangle } from "lucide-react";
-import {
-  BarChart,
-  Bar,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  ResponsiveContainer,
-  PieChart,
-  Pie,
-  Cell,
-} from "recharts";
+import { type UserRole } from "@/data/seeders";
+import { DashboardSuperAdmin } from "@/components/dashboards/DashboardSuperAdmin";
+import { DashboardGestor } from "@/components/dashboards/DashboardGestor";
+import { DashboardFinanceiro } from "@/components/dashboards/DashboardFinanceiro";
+import { DashboardAtendimento } from "@/components/dashboards/DashboardAtendimento";
+import { DashboardAssociado } from "@/components/dashboards/DashboardAssociado";
 
+<<<<<<< HEAD
 const monthlyData = [
   { name: "Jan", valor: 45200 },
   { name: "Fev", valor: 48100 },
@@ -45,10 +38,36 @@ const inadimplentes = [
   { id: 2, name: "Lucia Ferreira", meses: 2, valor: "R$ 180,00" },
   { id: 3, name: "Marcos Souza", meses: 4, valor: "R$ 360,00" },
 ];
+=======
+const dashboards: Record<UserRole, React.ComponentType> = {
+  super_admin: DashboardSuperAdmin,
+  gestor: DashboardGestor,
+  financeiro: DashboardFinanceiro,
+  atendimento: DashboardAtendimento,
+  associado: DashboardAssociado,
+};
+>>>>>>> 87306a0df605aefea68cac5ef5c65a933786e0a6
 
 export default function Dashboard() {
+  const navigate = useNavigate();
+  const [role, setRole] = useState<UserRole | null>(null);
+
+  useEffect(() => {
+    const stored = sessionStorage.getItem("demo_role") as UserRole | null;
+    if (!stored) {
+      navigate("/login");
+      return;
+    }
+    setRole(stored);
+  }, [navigate]);
+
+  if (!role) return null;
+
+  const DashboardComponent = dashboards[role];
+
   return (
     <AppLayout title="Dashboard">
+<<<<<<< HEAD
       <div className="space-y-6 max-w-7xl">
         {/* KPI Cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -167,6 +186,9 @@ export default function Dashboard() {
           </Card>
         </div>
       </div>
+=======
+      <DashboardComponent />
+>>>>>>> 87306a0df605aefea68cac5ef5c65a933786e0a6
     </AppLayout>
   );
 }
