@@ -26,10 +26,10 @@ const monthlyData = [
 ];
 
 const serviceData = [
-  { name: "Dentista", value: 340, color: "hsl(220, 65%, 48%)" },
-  { name: "Médico", value: 280, color: "hsl(250, 65%, 55%)" },
-  { name: "Psicólogo", value: 180, color: "hsl(142, 71%, 45%)" },
-  { name: "Contador", value: 120, color: "hsl(38, 92%, 50%)" },
+  { name: "Dentista", value: 340, color: "hsl(353, 99%, 40%)" },
+  { name: "Médico", value: 280, color: "hsl(353, 70%, 55%)" },
+  { name: "Psicólogo", value: 180, color: "hsl(353, 40%, 70%)" },
+  { name: "Contador", value: 120, color: "hsl(240, 5%, 35%)" },
 ];
 
 const recentActivity = [
@@ -88,14 +88,14 @@ export default function Dashboard() {
             <h3 className="text-sm font-semibold text-card-foreground mb-4">Arrecadação Mensal</h3>
             <ResponsiveContainer width="100%" height={260}>
               <BarChart data={monthlyData}>
-                <CartesianGrid strokeDasharray="3 3" stroke="hsl(220, 13%, 91%)" />
-                <XAxis dataKey="name" tick={{ fontSize: 12 }} stroke="hsl(220, 10%, 46%)" />
-                <YAxis tick={{ fontSize: 12 }} stroke="hsl(220, 10%, 46%)" />
+                <CartesianGrid strokeDasharray="3 3" stroke="hsl(0, 0%, 90%)" />
+                <XAxis dataKey="name" tick={{ fontSize: 12 }} stroke="hsl(0, 0%, 45%)" />
+                <YAxis tick={{ fontSize: 12 }} stroke="hsl(0, 0%, 45%)" />
                 <Tooltip
                   formatter={(value: number) => [`R$ ${value.toLocaleString("pt-BR")}`, "Valor"]}
-                  contentStyle={{ borderRadius: 8, border: "1px solid hsl(220, 13%, 91%)", fontSize: 12 }}
+                  contentStyle={{ borderRadius: 8, border: "1px solid hsl(0, 0%, 90%)", fontSize: 12 }}
                 />
-                <Bar dataKey="valor" fill="hsl(220, 65%, 48%)" radius={[4, 4, 0, 0]} />
+                <Bar dataKey="valor" fill="hsl(353, 99%, 40%)" radius={[4, 4, 0, 0]} />
               </BarChart>
             </ResponsiveContainer>
           </Card>
