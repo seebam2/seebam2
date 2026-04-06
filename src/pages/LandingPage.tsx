@@ -8,46 +8,46 @@ import {
 } from "lucide-react";
 
 const features = [
-  { icon: Users, title: "Gestão de Associados", desc: "Cadastro completo, dependentes, histórico profissional e controle de status." },
-  { icon: HeartPulse, title: "Motor de Benefícios", desc: "Regras de elegibilidade, cálculo automático de valores e descontos por tipo." },
-  { icon: BarChart3, title: "Financeiro Integrado", desc: "Mensalidades, pagamentos, inadimplência e relatórios em tempo real." },
-  { icon: Globe, title: "CMS Institucional", desc: "Site integrado com notícias, eventos, documentos e editor visual." },
-  { icon: Shield, title: "Multi-Tenant SaaS", desc: "Cada sindicato com base isolada, configurações e regras próprias." },
-  { icon: Landmark, title: "Portal do Associado", desc: "Área exclusiva com dados pessoais, pagamentos e agendamento de serviços." },
+  { icon: Users, title: "Gestão de Associados", desc: "Cadastro inteligente com dependentes, histórico profissional, documentos digitalizados e controle de status em tempo real." },
+  { icon: HeartPulse, title: "Motor de Benefícios", desc: "Automatize 100% da elegibilidade: regras dinâmicas, cálculo instantâneo de valores e descontos por categoria." },
+  { icon: BarChart3, title: "Financeiro Completo", desc: "Mensalidades, cobranças automáticas, controle de inadimplência e relatórios gerenciais que economizam horas de trabalho." },
+  { icon: Globe, title: "CMS Institucional", desc: "Site profissional integrado com notícias, eventos, documentos e editor visual — sem precisar de agência." },
+  { icon: Shield, title: "Multi-Tenant Seguro", desc: "Cada sindicato com base 100% isolada e criptografada. Seus dados nunca se misturam com os de outro cliente." },
+  { icon: Landmark, title: "Portal do Associado", desc: "Área exclusiva onde o associado consulta dados, emite boletos, agenda serviços e acompanha benefícios 24h." },
 ];
 
 const plans = [
   {
-    name: "Básico",
-    price: "R$ 890",
+    name: "Essencial",
+    price: "R$ 690",
     period: "/mês",
-    desc: "Para sindicatos de pequeno porte",
-    features: ["Até 500 associados", "3 usuários administrativos", "Módulos essenciais", "Suporte por e-mail"],
+    desc: "Ideal para sindicatos de pequeno porte que querem sair do papel",
+    features: ["Até 500 associados", "3 usuários administrativos", "Módulos essenciais", "Hospedagem e backup inclusos", "Suporte por e-mail"],
     highlight: false,
   },
   {
     name: "Profissional",
-    price: "R$ 1.890",
+    price: "R$ 1.490",
     period: "/mês",
-    desc: "Para sindicatos em crescimento",
-    features: ["Até 3.000 associados", "10 usuários administrativos", "Todos os módulos", "CMS integrado", "Suporte prioritário"],
+    desc: "Para sindicatos que precisam de autonomia total",
+    features: ["Até 5.000 associados", "15 usuários administrativos", "Todos os módulos + CMS", "Relatórios avançados", "Suporte prioritário por chat"],
     highlight: true,
   },
   {
     name: "Enterprise",
     price: "Sob consulta",
     period: "",
-    desc: "Para grandes sindicatos",
-    features: ["Associados ilimitados", "Usuários ilimitados", "API personalizada", "SLA dedicado", "Onboarding assistido"],
+    desc: "Para grandes sindicatos ou federações com necessidades específicas",
+    features: ["Associados ilimitados", "Usuários ilimitados", "Servidor próprio ou nuvem dedicada", "API completa + integrações", "SLA 99,99% + onboarding dedicado"],
     highlight: false,
   },
 ];
 
 const stats = [
-  { value: "14+", label: "Sindicatos ativos" },
+  { value: "14+", label: "Sindicatos confiam no Seebam" },
   { value: "18.000+", label: "Associados gerenciados" },
-  { value: "99,97%", label: "Uptime da plataforma" },
-  { value: "R$ 2M+", label: "Processados por mês" },
+  { value: "99,97%", label: "Disponibilidade garantida" },
+  { value: "R$ 2M+", label: "Processados mensalmente" },
 ];
 
 export default function LandingPage() {
@@ -83,27 +83,28 @@ export default function LandingPage() {
         <div className="absolute inset-0 bg-gradient-to-b from-primary/5 to-transparent pointer-events-none" />
         <div className="max-w-7xl mx-auto px-6 pt-20 pb-24 text-center relative">
           <Badge variant="secondary" className="mb-6 px-4 py-1.5">
-            <Zap className="h-3 w-3 mr-1.5" /> Plataforma SaaS para Sindicatos
+            <Zap className="h-3 w-3 mr-1.5" /> A plataforma #1 para gestão sindical no Brasil
           </Badge>
           <h1 className="text-4xl md:text-6xl font-bold text-foreground max-w-4xl mx-auto leading-tight tracking-tight">
-            Gestão sindical <span className="text-primary">moderna e completa</span> em uma única plataforma
+            Seu sindicato merece uma <span className="text-primary">gestão de verdade</span>
           </h1>
-          <p className="mt-6 text-lg text-muted-foreground max-w-2xl mx-auto">
-            Controle associados, finanças, serviços, convênios e muito mais. 
-            Automatize processos e foque no que importa: seus associados.
+          <p className="mt-6 text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+            Chega de planilhas, retrabalho e informações perdidas. 
+            O Seebam centraliza associados, finanças, benefícios e atendimento em um só lugar — 
+            com segurança de nível bancário e suporte humanizado.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center mt-10">
             <Button size="lg" onClick={() => navigate("/login")} className="text-base px-8">
-              Começar gratuitamente <ChevronRight className="h-4 w-4" />
+              Testar grátis por 14 dias <ChevronRight className="h-4 w-4" />
             </Button>
             <Button size="lg" variant="outline" className="text-base px-8">
-              Agendar demonstração
+              Agendar demonstração ao vivo
             </Button>
           </div>
           <div className="mt-8 flex items-center justify-center gap-6 text-sm text-muted-foreground">
-            <span className="flex items-center gap-1.5"><CheckCircle2 className="h-4 w-4 text-primary" /> 14 dias grátis</span>
-            <span className="flex items-center gap-1.5"><Lock className="h-4 w-4 text-primary" /> Dados seguros</span>
-            <span className="flex items-center gap-1.5"><Smartphone className="h-4 w-4 text-primary" /> 100% responsivo</span>
+            <span className="flex items-center gap-1.5"><CheckCircle2 className="h-4 w-4 text-primary" /> Sem cartão de crédito</span>
+            <span className="flex items-center gap-1.5"><Lock className="h-4 w-4 text-primary" /> Dados criptografados</span>
+            <span className="flex items-center gap-1.5"><Smartphone className="h-4 w-4 text-primary" /> Acesse de qualquer dispositivo</span>
           </div>
         </div>
       </section>
@@ -126,9 +127,9 @@ export default function LandingPage() {
       <section id="funcionalidades" className="max-w-7xl mx-auto px-6 py-24">
         <div className="text-center mb-16">
           <Badge variant="outline" className="mb-4">Funcionalidades</Badge>
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground">Tudo que seu sindicato precisa</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground">Pare de improvisar. Comece a gerenciar.</h2>
           <p className="mt-4 text-muted-foreground max-w-xl mx-auto">
-            Módulos integrados que cobrem todas as necessidades operacionais e administrativas.
+            Módulos integrados que eliminam retrabalho e dão visibilidade total da operação do seu sindicato.
           </p>
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -148,9 +149,12 @@ export default function LandingPage() {
       <section id="planos" className="bg-muted/30 border-y">
         <div className="max-w-7xl mx-auto px-6 py-24">
           <div className="text-center mb-16">
-            <Badge variant="outline" className="mb-4">Planos</Badge>
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground">Escolha o plano ideal</h2>
-            <p className="mt-4 text-muted-foreground">Preços justos que crescem com seu sindicato.</p>
+            <Badge variant="outline" className="mb-4">Planos transparentes</Badge>
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground">Invista menos do que uma folha de pagamento extra</h2>
+            <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">
+              Preços justos que cabem no orçamento. Hospedamos seus dados com segurança total na nossa nuvem — 
+              ou, se preferir, o sistema roda no seu próprio servidor com total controle e privacidade.
+            </p>
           </div>
           <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
             {plans.map((plan) => (
@@ -191,13 +195,14 @@ export default function LandingPage() {
       {/* CTA */}
       <section className="max-w-7xl mx-auto px-6 py-24 text-center">
         <h2 className="text-3xl md:text-4xl font-bold text-foreground">
-          Pronto para modernizar seu sindicato?
+          Enquanto você lê isso, outro sindicato já está automatizando
         </h2>
         <p className="mt-4 text-muted-foreground max-w-xl mx-auto">
-          Comece agora com 14 dias gratuitos. Sem compromisso, sem cartão de crédito.
+          Teste gratuitamente por 14 dias. Sem compromisso, sem cartão de crédito, sem surpresas. 
+          Seus dados ficam seguros — conosco ou no seu próprio servidor.
         </p>
         <Button size="lg" className="mt-8 text-base px-10" onClick={() => navigate("/login")}>
-          Criar conta gratuita <ArrowRight className="h-4 w-4" />
+          Começar agora — é grátis <ArrowRight className="h-4 w-4" />
         </Button>
       </section>
 
